@@ -5,8 +5,11 @@ const rp = require("request-promise");
 const ImageUtils = require("alexa-sdk").utils.ImageUtils;
 const TextUtils = require("alexa-sdk").utils.TextUtils;
 
+const APP_ID = "amzn1.ask.skill.7720db98-f529-4d10-9a0c-f7617ba821ac";
+
 exports.handler = function (event, context) {
     const alexa = Alexa.handler(event, context);
+    alexa.APP_ID = APP_ID;
     alexa.registerHandlers(handlers);
     alexa.execute();
 };
