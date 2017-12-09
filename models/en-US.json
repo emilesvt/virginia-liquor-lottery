@@ -1,7 +1,7 @@
 {
   "interactionModel": {
     "languageModel": {
-      "invocationName": "virginia liquor lottery",
+      "invocationName": "liquor lottery",
       "intents": [
         {
           "name": "AMAZON.CancelIntent",
