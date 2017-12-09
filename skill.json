@@ -1,0 +1,52 @@
+{
+  "skillManifest": {
+    "publishingInformation": {
+      "locales": {
+        "en-US": {
+          "summary": "Allows the user to obtain information on current and future limited availability product lotteries from Virginia ABC.",
+          "examplePhrases": [
+            "Alexa, ask Virginia Liquor Lottery what are the upcoming lotteries",
+            "Alexa, ask Virginia Liquor Lottery what are the current lotteries",
+            "Alexa, ask Virginia Liquor Lottery to give me the current lottery"
+          ],
+          "keywords": [
+            "virgina",
+            "abc",
+            "lottery",
+            "bourbon",
+            "whiskey",
+            "alcohol",
+            "vodka",
+            "rum",
+            "tequila"
+          ],
+          "name": "Virginia Liquor Lottery",
+          "description": "Find out what products are currently in an open lottery or available for a future lottery from the Virginia Department of Alcoholic Beverage Control stores. This skill is in no way affiliated with Virginia ABC.",
+          "smallIconUri": "https://s3.amazonaws.com/va-abc-lottery/icon_108.png",
+          "largeIconUri": "https://s3.amazonaws.com/va-abc-lottery/icon_512.png"
+        }
+      },
+      "isAvailableWorldwide": false,
+      "testingInstructions": "Ask for upcoming lotteries.  Ask for open lotteries.  To check against the actual products, take a look at https://www.abc.virginia.gov/products/limited-availability .",
+      "category": "WINE_AND_BEVERAGE",
+      "distributionCountries": [
+        "US"
+      ]
+    },
+    "apis": {
+      "custom": {
+        "endpoint": {
+          "sourceDir": "lambda/custom"
+        }
+      }
+    },
+    "manifestVersion": "1.0",
+    "privacyAndCompliance": {
+      "allowsPurchases": false,
+      "isExportCompliant": true,
+      "containsAds": false,
+      "isChildDirected": false,
+      "usesPersonalInfo": false
+    }
+  }
+}

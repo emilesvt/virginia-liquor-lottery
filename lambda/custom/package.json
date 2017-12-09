@@ -1,0 +1,14 @@
+{
+  "name": "va-abc-lottery-skill-lambda",
+  "version": "1.0.0",
+  "description": "Virginia ABC Lottery Skill",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "alexa-sdk": "^1.0.0",
+    "cheerio": "1.0.0-rc.2",
+    "request": "2.83.0",
+    "request-promise": "^4.2.2"
+  }
+}

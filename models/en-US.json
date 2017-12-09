@@ -1,0 +1,91 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "virginia liquor lottery",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.MoreIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateSettingsIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NextIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.PageDownIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.PageUpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.PreviousIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.ScrollDownIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.ScrollLeftIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.ScrollRightIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.ScrollUpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "OpenLottery",
+          "samples": [
+            "what are the current lotteries",
+            "give me the current lotteries",
+            "open lotteries",
+            "open lottery",
+            "give me the open lotteries",
+            "what are the open lotteries",
+            "current lottery",
+            "current lotteries",
+            "what lotteries can i enter",
+            "give me lotteries i can enter"
+          ]
+        },
+        {
+          "name": "UpcomingLottery",
+          "samples": [
+            "what are the upcoming lotteries",
+            "give me the upcoming lotteries",
+            "what are the future lotteries",
+            "give me the future lotteries",
+            "what are the lotteries that haven't happened yet",
+            "give me the lotteries that haven't happened yet",
+            "future lotteries",
+            "pending lotteries",
+            "what are the pending lotteries",
+            "give me pending lotteries"
+          ]
+        }
+      ]
+    }
+  }
+}
