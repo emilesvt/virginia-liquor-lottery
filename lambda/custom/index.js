@@ -13,7 +13,7 @@ exports.handler = function (event, context) {
 
 const handlers = {
     "LaunchRequest": function () {
-        this.emit(":ask", "Welcome to Virginia Liquor Lottery! Try asking for open lotteries or upcoming lotteries.");
+        this.emit(":ask", "Welcome to Virginia Liquor Lottery! Try asking for open or upcoming lotteries.");
     },
     "OpenLottery": function () {
         console.log(`Received the following event for OpenLottery: ${JSON.stringify(this.event.request)}`);
