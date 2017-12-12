@@ -84,6 +84,17 @@
             "what are the pending lotteries",
             "give me pending lotteries"
           ]
+        },
+        {
+          "name": "EnterLottery",
+          "samples": [
+            "register for lottery",
+            "enter lottery",
+            "win liquor",
+            "try to win",
+            "enter",
+            "register"
+          ]
         }
       ]
     }

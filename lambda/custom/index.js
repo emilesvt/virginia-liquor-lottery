@@ -66,6 +66,10 @@ const handlers = {
             this.emit("FetchError");
         });
     },
+    "EnterLottery": function () {
+        console.log(`Received the following event for EnterLottery: ${JSON.stringify(this.event.request)}`);
+        this.emit(":tell", `We don't support this feature <break time="500ms"/> <emphasis level="strong">yet</emphasis>`);
+    },
     "FetchError": function () {
         this.emit(":tell", `There was a problem communicating with the Virginia Department of Alcoholic Beverage Control.`);
     },
@@ -136,7 +140,7 @@ function retrieveLotteries() {
 
         });
 
-        console.log(`${distributions.length} entries found: ${distributions}`);
+        console.log(`${distributions.length} entries found: ${JSON.stringify(distributions)}`);
 
         return distributions;
     });

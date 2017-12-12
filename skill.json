@@ -27,7 +27,7 @@
         }
       },
       "isAvailableWorldwide": false,
-      "testingInstructions": "Ask for upcoming lotteries.  Ask for open lotteries.  To check against the actual products, take a look at https://www.abc.virginia.gov/products/limited-availability .",
+      "testingInstructions": "Deltas since last release: placeholder intent for a highly requested feature, EnterLottery.  Ask for upcoming lotteries.  Ask for open lotteries.  To check against the actual products, take a look at https://www.abc.virginia.gov/products/limited-availability .",
       "category": "WINE_AND_BEVERAGE",
       "distributionCountries": [
         "US"
