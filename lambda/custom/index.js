@@ -1,6 +1,5 @@
 "use strict";
 const Alexa = require("alexa-sdk");
-const cheerio = require("cheerio");
 const rp = require("request-promise");
 const ImageUtils = require("alexa-sdk").utils.ImageUtils;
 const TextUtils = require("alexa-sdk").utils.TextUtils;
@@ -93,55 +92,10 @@ const handlers = {
 function retrieveLotteries() {
     return rp({
         method: "GET",
-        uri: "https://www.abc.virginia.gov/products/limited-availability",
-        headers: {
-            "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36"
-        },
-        transform: (body) => {
-            return cheerio.load(body);
-        }
-    }).then($ => {
-        const distributions = [];
-
-        $(".content-body").find(".row").each((i, elem) => {
-            const productAnchor = $(elem).find("div h3 a");
-            const name = productAnchor.text();
-            const productUrl = `https://www.abc.virginia.gov${productAnchor.attr("href")}`;
-            const details = $(elem).find("div p").text().split("|");
-
-            if (details[0].indexOf("LOTTERY IS CLOSED") === -1) {
-
-                distributions.push({
-                    name: name,
-                    productUrl: productUrl,
-                    // image: new Promise((resolve, reject) => {
-                    //     rp({
-                    //         method: "GET",
-                    //         uri: productUrl,
-                    //         headers: {
-                    //             "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36"
-                    //         },
-                    //         transform: (body) => {
-                    //             return cheerio.load(body);
-                    //         }
-                    //     }).then($$ => {
-                    //         const image = `https://www.abc.virginia.gov${$$(".img-responsive").attr("src")}`;
-                    //         resolve(image.substring(0, image.indexOf("?")));
-                    //     }).catch(e => {
-                    //         reject(e);
-                    //     });
-                    // }),
-                    quantity: details[1].trim(),
-                    price: details[2].trim(),
-                    open: details[0].indexOf("ENTER LOTTERY HERE") >= 0,
-                    notification: $(elem).find("div span").text().trim()
-                });
-            }
-
-        });
-
+        uri: "https://abhi2xr3kb.execute-api.us-east-1.amazonaws.com/prod/lottery",
+        json: true
+    }).then(distributions => {
         console.log(`${distributions.length} entries found: ${JSON.stringify(distributions)}`);
-
         return distributions;
     });
 }
@@ -156,14 +110,6 @@ function makeGoodListGrammar(descriptions) {
     } else {
         return descriptions.map((description, index) => `${index === 0 ? "" : ", "}${index === descriptions.length - 1 ? "and " : ""}${description}`).join("");
     }
-}
-
-function createStockingMapTemplate(stockings) {
-    const url = "https://maps.googleapis.com/maps/api/staticmap?&size=340x340&type=hybrid" + stockings.map((stocking, index) => `&markers=label:${index + 1}|${stocking.water},${stocking.county},VA`).join("");
-    const builder = new Alexa.templateBuilders.BodyTemplate3Builder();
-    const text = TextUtils.makeRichText(stockings.map((stocking, index) => `${index + 1}.&#160;&#160;${stocking.water.trim()}<br/>`).join(""));
-    return builder.setBackButtonBehavior("HIDDEN").setTitle("Trout Stocking Map").setTextContent(text).setImage(ImageUtils.makeImage(url, undefined, undefined, undefined, "Trout Stocking Map with Markers for Locations"))
-        .build();
 }
 
 function getSlotValue(slot) {
